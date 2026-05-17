@@ -1,14 +1,16 @@
-import sys
 import os
+import sys
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import pytest
 import asyncio
-from fastapi.testclient import TestClient
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 
-from main import app
+import pytest
+from fastapi.testclient import TestClient
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+
 from database import Base, get_db
+from main import app
 
 # Асинхронный SQLite в памяти для тестов
 TEST_DATABASE_URL = "sqlite+aiosqlite://"
