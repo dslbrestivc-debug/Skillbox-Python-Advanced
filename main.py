@@ -1,11 +1,13 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Depends, HTTPException
-from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
 
-from database import get_db, engine, Base
-from schemas import RecipeListOut, RecipeDetailOut, RecipeCreate
-from crud import get_recipes, get_recipe, increment_views, create_recipe
+from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from crud import create_recipe, get_recipe, get_recipes, increment_views
+from database import Base, engine, get_db
+from schemas import RecipeCreate, RecipeDetailOut, RecipeListOut
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
