@@ -1,7 +1,9 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
-from models import Recipe, Ingredient
+
+from models import Ingredient, Recipe
+
 
 async def get_recipes(db: AsyncSession) -> list[Recipe]:
     # Сортировка: сначала по убыванию просмотров, затем по возрастанию времени приготовления
